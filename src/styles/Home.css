@@ -1,0 +1,199 @@
+/* Purple brand colour for navbar */
+.bg-purple {
+  background: #7a00c5; 
+  height: 50px;          /* tweak to match your design */
+}
+
+#nav{
+  width: 90%;
+  margin: auto;
+}
+
+.btn-dark {
+  background-color: black;
+  color: white;
+  border: none;
+}
+.btn-dark:hover {
+  background-color: #AF1FD3;
+  color: white;
+}
+/* Clip bottom‑right of hero image for curved corner */
+.hero-img {
+  clip-path: inset(0 0 0 0 round 0 0 0 30%);
+  width: 620px; /* Adjust as needed */
+  height: 460px; /* Adjust as needed */
+    margin-left: 420px;  
+}
+
+/* Quote card styling & placement */
+.quote-card {
+  background: #d9d9d9;
+  width: 330px; /* Adjust as needed */
+  height: 200px;
+  position: absolute;
+  top: 40%;
+  left: 19%;
+  transform: translateY(-25%);
+  font-family: cursive;
+}
+
+/* Home imageSmooth image zoom */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Smooth card lift */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* section 2 book cards */
+
+.book-image {
+  width: 70%;
+  height: 210px;
+  object-fit: cover;
+  
+  transition: transform 0.3s ease;
+}
+
+.book-img:hover {
+  transform: scale(1.05);
+}
+
+.rounded-start-top {
+  border-top-left-radius: 50% !important;
+  margin-left: 50px;
+}
+
+
+.rounded-center {
+  border-radius: 30px !important;
+  margin-top: 150px;
+}
+
+.rounded-end-top {
+  border-top-right-radius: 50% !important;
+}
+
+.btn-purple {
+  background-color: #6f42c1;
+  color: white;
+  border: none;
+  
+}
+
+.btn-purple:hover {
+  background-color: #5a32a3;
+  
+}
+
+#btnmore{
+  margin-left: 770px;
+  margin-top: -150px;
+  
+}
+
+/* section  3 */
+
+.borrow-highlight{
+  margin-top: 40px;
+}
+
+  .glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;;
+}
+.glass-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+color: #7a00c5;
+  
+}
+
+.text-purple {
+  color: #6f42c1;
+}
+
+.btn-purple {
+  background-color: #6f42c1;
+  color: #fff;
+  border: none;
+}
+.btn-purple:hover {
+  background-color: #5a32a3;
+}
+
+
+/* section 4 */
+.book-highlight-section {
+  background: linear-gradient(135deg, #f8f9fa, #eef2ff);
+}
+
+.text-purple {
+  color: #6f42c1;
+}
+
+.hover-scale {
+  transition: transform 0.4s ease;
+}
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.btn-purple {
+  background-color: #6f42c1;
+  color: white;
+  border: none;
+}
+.btn-purple:hover {
+  background-color: #5936a3;
+}
+
+/* Optional: Glass-style background for card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+}
+
+/* section 5 */
+.btn-purple {
+  background-color: #6f42c1;
+  color: white;
+  border: none;
+}
+.btn-purple:hover {
+  background-color: #5936a3;
+}
+
+.carousel-item {
+  padding: 40px 20px;
+  
+}
+
+.carousel-item img {
+  max-height: 300px;
+  object-fit: cover;
+}
+.text-purple {
+  color: #6f42c1;
+}
+
+
+
+
+  
+
+
+
