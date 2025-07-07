@@ -1,0 +1,21 @@
+.btn-purple {
+  background-color: #273c41;
+  color: white;
+  border: none;
+}
+.btn-purple:hover {
+  background-color: #a3a39b;
+}
+
+.dashboard-card {
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  background-color: #45575b;
+}
+.d-flex2 {
+    margin-top: 70px;
+    margin-left: 150px;
+     
+}
+
+

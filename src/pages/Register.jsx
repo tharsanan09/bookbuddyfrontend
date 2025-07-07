@@ -1,19 +1,23 @@
-import { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from '../utils/axiosInstance'; //  Your custom axios with baseURL
+// import axios from 'axios';
 
-export default function Register() {
+const Register = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    password: ''
+    password: '',
+    confirmPassword: '',
+    role: 'user',
   });
 
   const [error, setError] = useState('');
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
@@ -21,57 +25,118 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+
+    if (formData.password !== formData.confirmPassword) {
+      return setError("Passwords do not match");
+    }
 
     try {
-      await axios.post('http://localhost:5000/api/auth/register', formData);
-      navigate('/login'); // Redirect after successful registration
+      const res = await axios.post('/auth/register', {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        role: formData.role,
+      });
+
+      console.log("Registration successful:", res.data);
+      navigate('/login'); // ✅ redirect to login after success
     } catch (err) {
-      setError(err.response?.data?.message || 'Registration failed');
+      console.error(err);
+      setError(err.response?.data?.message || "Registration failed");
     }
   };
 
   return (
-    <div className="container mt-5" style={{ maxWidth: '450px' }}>
-      <h3 className="mb-4">Register</h3>
-      {error && <div className="alert alert-danger">{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label>Name</label>
-          <input
-            type="text"
-            name="name"
-            className="form-control"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            className="form-control"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            className="form-control"
-            value={formData.password}
-            onChange={handleChange}
-            minLength="6"
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-success w-100">Register</button>
-      </form>
+    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+      <div className="p-4 mt-5 shadow-lg"
+        style={{
+          width: '100%',
+          maxWidth: '380px',
+          border: '1px black solid',
+          borderRadius: '10px',
+          backgroundColor: '#45575b',
+        }}>
+        <h3 className="text-center mb-3 fw-bold">Sign up</h3>
+
+        {error && <p className="text-danger text-center">{error}</p>}
+
+        <form onSubmit={handleSubmit}>
+          <div className="mb-2">
+            <label className="fw-semibold mb-1">Full Name:</label>
+            <input
+              type="text"
+              name="name"
+              className="form-control rounded-pill px-3"
+              placeholder="Enter your full name here..."
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="mb-2">
+            <label className="fw-semibold mb-1">Email Address:</label>
+            <input
+              type="email"
+              name="email"
+              className="form-control rounded-pill px-3"
+              placeholder="Enter your email here..."
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="mb-2">
+            <label className="fw-semibold mb-1">Password:</label>
+            <input
+              type="password"
+              name="password"
+              className="form-control rounded-pill px-3"
+              placeholder="Enter your password here..."
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="mb-2">
+            <label className="fw-semibold mb-1">Confirm Password:</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              className="form-control rounded-pill px-3"
+              placeholder="Re-enter your password here..."
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="fw-semibold mb-1">Role:</label>
+            <select
+              name="role"
+              className="form-select rounded-pill px-3"
+              value={formData.role}
+              onChange={handleChange}
+            >
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+
+          <button type="submit" className="btn btn-purple w-50 rounded-pill fw-semibold" style={{ marginLeft: '25%' }}>
+            Sign up
+          </button>
+        </form>
+
+        <p className="text-center mt-3 mb-0">
+          You have an account? <Link to="/login" className="text-light fw-bold">Sign in</Link>
+        </p>
+      </div>
     </div>
   );
-}
+};
+
+export default Register;

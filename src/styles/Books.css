@@ -1,23 +1,20 @@
 .book-img {
-  height: 200px;
-  object-fit: cover;
+  height: 150px;
 }
 
 .book-card {
   transition: transform 0.3s ease;
   text-align: center;
+ 
+}
 
+.card-body{
+  height: 170px;
 }
 
 .book-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
-
-}
-.btn-outline-primary:hover {
-  background-color: #6f42c1;
-  color: white;
-  border-color: #6f42c1;
 }
 
 .card-text {
@@ -26,14 +23,14 @@
 }
 
 .sidebar {
-  background-color: #7a00c5;
+  background-color: #273c41;
   padding: 20px;
   border-radius: 10px;
   color: white;
   position: fixed;
   
   left: 0px;
-  width: 200px;
+  width: 170px;
   height: calc(100% - 40px);
   overflow-y: auto;
 }
@@ -41,7 +38,7 @@
 .sidebar h5 {
   margin-bottom: 20px;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-top: 40px;
 }
 
@@ -49,19 +46,19 @@
   padding: 8px 0;
   color: #ffffff;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 500;
   display: block;
   margin-left: 30px;
 }
 
 .sidebar .nav-link:hover {
-  color: #6f42c1;
+  color: black;
 }
 
 .search-bar {
   margin-top: 20px;
-  width: 60%;
+  width: 66%;
 }
 
 .search-input {
